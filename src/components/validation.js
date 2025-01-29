@@ -20,6 +20,27 @@ function hideValidationError(formElement, inputElement, configuration) {
 function isValid(formElement, inputElement, configuration) {
   const errorMessage =
     inputElement.dataset.errorMsg || inputElement.validationMessage;
+
+  if (inputElement.validity.valueMissing) {
+    showValidationError(
+      formElement,
+      inputElement,
+      "Вы пропустили это поле.",
+      configuration
+    );
+    return;
+  }
+
+  if (inputElement.validity.tooShort) {
+    showValidationError(
+      formElement,
+      inputElement,
+      `Минимум ${inputElement.minLength} символа.`,
+      configuration
+    );
+    return;
+  }
+
   if (!inputElement.validity.valid) {
     showValidationError(formElement, inputElement, errorMessage, configuration);
   } else {
