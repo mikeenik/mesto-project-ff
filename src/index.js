@@ -185,7 +185,6 @@ editProfileButton.addEventListener("click", () => {
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 
-  clearValidation(editProfilePopupForm, validationConfiguration);
   openPopup(editProfilePopup);
 });
 
