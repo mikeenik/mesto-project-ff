@@ -41,7 +41,7 @@ export function createCard(
    likeButton.addEventListener("click", () => {
     handleLikeCard(likeButton, cardId, likeCount);
   });
-  cardImage.addEventListener("click", handleOpenCard);
+  cardImage.addEventListener("click", () => handleOpenCard(cardData));
 
   return cardElement;
 }

@@ -182,6 +182,8 @@ Promise.all([getUserData(), getCardsData()])
   });
 
 editProfileButton.addEventListener("click", () => {
+  clearValidation(editProfilePopupForm, validationConfiguration);
+
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 
@@ -193,7 +195,6 @@ closeButtonEditProfilePopup.addEventListener("click", () =>
 );
 editProfilePopupForm.addEventListener("submit", handleEditProfileSubmitForm);
 
-saveCardDataButton.addEventListener("click", () => closePopup(addCardPopup));
 addCardButton.addEventListener("click", () => {
   clearValidation(addCardPopupForm, validationConfiguration);
   openPopup(addCardPopup);
